@@ -1,0 +1,755 @@
+body {
+  margin: 0;
+  background-color: #ebecf0;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 3;
+}
+
+header #logo {
+  width: 40px;
+}
+
+header .menu-btn {
+  height: 15px;
+  width: 35px;
+  margin-left: auto;
+  padding: 5px;
+  cursor: pointer;
+}
+
+header .menu-btn span::before,
+header .menu-btn span:after {
+  height: 3px;
+  width: 35px;
+  content: '';
+  position: absolute;
+  background-color: #000;
+  -webkit-transition: margin-top 200ms ease 150ms, -webkit-transform 200ms ease;
+  transition: margin-top 200ms ease 150ms, -webkit-transform 200ms ease;
+  transition: margin-top 200ms ease 150ms, transform 200ms ease;
+  transition: margin-top 200ms ease 150ms, transform 200ms ease, -webkit-transform 200ms ease;
+}
+
+header .menu-btn span:after {
+  margin-top: 10px;
+}
+
+header .menu-btn.active span:before {
+  margin-top: 5px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: margin-top 100ms ease 100ms, -webkit-transform 400ms ease 200ms;
+  transition: margin-top 100ms ease 100ms, -webkit-transform 400ms ease 200ms;
+  transition: margin-top 100ms ease 100ms, transform 400ms ease 200ms;
+  transition: margin-top 100ms ease 100ms, transform 400ms ease 200ms, -webkit-transform 400ms ease 200ms;
+}
+
+header .menu-btn.active span:after {
+  margin-top: 5px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transition: margin-top 100ms ease 100ms, -webkit-transform 400ms ease 200ms;
+  transition: margin-top 100ms ease 100ms, -webkit-transform 400ms ease 200ms;
+  transition: margin-top 100ms ease 100ms, transform 400ms ease 200ms;
+  transition: margin-top 100ms ease 100ms, transform 400ms ease 200ms, -webkit-transform 400ms ease 200ms;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 38vh;
+  width: 100%;
+  z-index: 0;
+}
+
+nav #quote {
+  margin-bottom: 40px;
+  font-size: 20px;
+  color: #4c515a;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  opacity: 0;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+nav #quote.fade-in {
+  letter-spacing: normal;
+  opacity: initial;
+  -webkit-transition: all 300ms ease-in-out 130ms;
+  transition: all 300ms ease-in-out 130ms;
+}
+
+nav .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 55px;
+  width: 55px;
+  margin: 0px 7px;
+  border-radius: 50%;
+  background-color: #5c5edc;
+  -webkit-transition: -webkit-transform 150ms ease;
+  transition: -webkit-transform 150ms ease;
+  transition: transform 150ms ease;
+  transition: transform 150ms ease, -webkit-transform 150ms ease;
+}
+
+nav .link .icon {
+  height: 30px;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+nav .link:nth-child(1) {
+  background-color: #408cff;
+  background: linear-gradient(45deg, #66757f, #0586ff, #3485ff, #7cb1ff, #fff);
+}
+
+nav .link:nth-child(2) {
+  background-color: #111;
+  background: linear-gradient(45deg, #25211f, #312828, #3f3434, #6b6767, #fff);
+}
+
+nav .link:nth-child(3) {
+  background-color: #6e5494;
+  background: linear-gradient(45deg, #4057c0, #6e39be, #8359c3, #fafafa);
+}
+
+nav .link:nth-child(4) {
+  background-color: #111;
+  background: linear-gradient(45deg, #000, #111, #222, #505050, #ccc);
+}
+
+nav .link:nth-child(5) {
+  background-color: #0092d6;
+  background: linear-gradient(45deg, #66757f, #006192, #0078b4, #37b6f1, #fff);
+}
+
+nav .link:hover {
+  -webkit-transform: translateY(-3px) scale(1.05);
+          transform: translateY(-3px) scale(1.05);
+}
+
+.stack .card-1,
+.stack .card-2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  background-color: #fff;
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+  -webkit-box-shadow: 0 -1px 10px #ccc;
+          box-shadow: 0 -1px 10px #ccc;
+}
+
+.stack .card-1 {
+  -webkit-transform: translate(0, 22vh) scale(0.65);
+          transform: translate(0, 22vh) scale(0.65);
+}
+
+.stack .card-2 {
+  -webkit-transform: translate(0, 28vh) scale(0.7);
+          transform: translate(0, 28vh) scale(0.7);
+}
+
+.stack.stacked .card-1 {
+  -webkit-transition: all 200ms ease-in-out 300ms;
+  transition: all 200ms ease-in-out 300ms;
+  -webkit-transform: translate(0, 22vh) scale(0.7);
+          transform: translate(0, 22vh) scale(0.7);
+}
+
+.stack.stacked .card-2 {
+  -webkit-transition: all 200ms ease-in-out 250ms;
+  transition: all 200ms ease-in-out 250ms;
+  -webkit-transform: translate(0, 28vh) scale(0.75);
+          transform: translate(0, 28vh) scale(0.75);
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: -webkit-transform 350ms ease-in-out 30ms;
+  transition: -webkit-transform 350ms ease-in-out 30ms;
+  transition: transform 350ms ease-in-out 30ms;
+  transition: transform 350ms ease-in-out 30ms, -webkit-transform 350ms ease-in-out 30ms;
+  background-color: #fff;
+  background-image: url("../assets/svgs/bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 0 -1px 10px #ccc;
+          box-shadow: 0 -1px 10px #ccc;
+  overflow-x: hidden;
+  z-index: 2;
+}
+
+.card.stacked {
+  border-radius: 10px;
+  -webkit-transform: translate(0px, 34vh) scale(0.8);
+          transform: translate(0px, 34vh) scale(0.8);
+}
+
+.card.stacked .container {
+  padding-top: 75px;
+}
+
+.card .container {
+  display: inline-block;
+  padding: 110px 0 20px 130px;
+  -webkit-transition: padding 350ms ease 30ms;
+  transition: padding 350ms ease 30ms;
+}
+
+.card .avatar {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-size: 220px;
+  background-image: url("../assets/img/Bhavya_profile.jpeg");
+  overflow: hidden;
+}
+
+.card .name {
+  margin-top: 40px;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.card .about {
+  font-size: 23px;
+  font-weight: 500;
+  max-width: 35vw;
+}
+
+.card .about span {
+  display: block;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: initial;
+}
+
+.card .github {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+  text-decoration: none;
+  color: #4c515a;
+  font-size: 17px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.card .github img {
+  height: 25px;
+  margin-right: 10px;
+  -webkit-filter: invert(30%) sepia(13%) saturate(435%) hue-rotate(180deg) brightness(93%) contrast(86%);
+          filter: invert(30%) sepia(13%) saturate(435%) hue-rotate(180deg) brightness(93%) contrast(86%);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.card .github:hover {
+  color: #5c5edc;
+}
+
+.card .github:hover img {
+  -webkit-filter: invert(28%) sepia(81%) saturate(1021%) hue-rotate(214deg) brightness(112%) contrast(91%);
+          filter: invert(28%) sepia(81%) saturate(1021%) hue-rotate(214deg) brightness(112%) contrast(91%);
+}
+
+.card .hero {
+  display: inline;
+  position: absolute;
+  height: 90vh;
+  -webkit-transform: translate(15vw, 5vh);
+          transform: translate(15vw, 5vh);
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.card .hero img {
+  display: inline-block;
+  height: 95vh;
+  -webkit-filter: opacity(0.2);
+          filter: opacity(0.2);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: -webkit-transform 500ms ease, -webkit-filter 750ms ease;
+  transition: -webkit-transform 500ms ease, -webkit-filter 750ms ease;
+  transition: transform 500ms ease, filter 750ms ease;
+  transition: transform 500ms ease, filter 750ms ease, -webkit-transform 500ms ease, -webkit-filter 750ms ease;
+}
+
+.card .hero:hover {
+  -webkit-transform: translate(5vw, 5vh);
+          transform: translate(5vw, 5vh);
+}
+
+.card .hero:hover img {
+  -webkit-filter: opacity(1);
+          filter: opacity(1);
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.card footer {
+  padding: 20px 0 20px 40px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  nav {
+    height: 38vh;
+  }
+  nav #quote {
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
+  nav .link {
+    height: 45px;
+    width: 45px;
+  }
+  nav .link .icon {
+    height: 25px;
+  }
+  .card .container {
+    padding: 70px 20px 15px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: calc(100vh - 150px);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .card .avatar {
+    width: 170px;
+    height: 170px;
+    background-size: 170px;
+  }
+  .card .name {
+    font-size: 45px;
+    text-align: center;
+  }
+  .card .about {
+    max-width: initial;
+    font-size: 20px;
+    text-align: center;
+  }
+  .card .about span {
+    font-size: 16px;
+  }
+  .card .github {
+    font-size: 15px;
+  }
+  .card .github img {
+    height: 22px;
+  }
+  .card .hero {
+    display: none;
+  }
+  .card footer {
+    font-size: 13px;
+  }
+  .card.stacked {
+    -webkit-transform: translate(0px, 32vh) scale(0.9);
+            transform: translate(0px, 32vh) scale(0.9);
+  }
+  .stack .card-1 {
+    -webkit-transform: translate(0, 22vh) scale(0.75);
+            transform: translate(0, 22vh) scale(0.75);
+  }
+  .stack .card-2 {
+    -webkit-transform: translate(0, 27vh) scale(0.8);
+            transform: translate(0, 27vh) scale(0.8);
+  }
+  .stack.stacked .card-1 {
+    -webkit-transform: translate(0, 22vh) scale(0.8);
+            transform: translate(0, 22vh) scale(0.8);
+  }
+  .stack.stacked .card-2 {
+    -webkit-transform: translate(0, 27vh) scale(0.85);
+            transform: translate(0, 27vh) scale(0.85);
+  }
+}
+
+@media only screen and (max-height: 480px) and (orientation: landscape) {
+  nav {
+    height: 42vh;
+  }
+  nav #quote {
+    margin-bottom: 20px;
+    font-size: 17px;
+  }
+  nav .link {
+    height: 45px;
+    width: 45px;
+  }
+  nav .link .icon {
+    height: 25px;
+  }
+  .card .container {
+    padding: 70px 0 20px 30px;
+  }
+  .card .avatar {
+    height: 100px;
+    width: 100px;
+    background-size: 100px;
+  }
+  .card .name {
+    margin-top: 20px;
+    font-size: 35px;
+  }
+  .card .about {
+    margin-top: 17px;
+    font-size: 18px;
+  }
+  .card .about span {
+    margin-top: 20px;
+    font-size: 16px;
+    width: 60vw;
+  }
+  .card .github {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+  .card .github img {
+    height: 22px;
+  }
+  .card .hero {
+    -webkit-transform: translate(12vw, 5vh);
+            transform: translate(12vw, 5vh);
+  }
+  .card footer {
+    font-size: 13px;
+  }
+  .card.stacked {
+    -webkit-transform: translate(0px, 45vh) scale(0.9);
+            transform: translate(0px, 45vh) scale(0.9);
+  }
+  .stack .card-1 {
+    -webkit-transform: translate(0, 31vh) scale(0.75);
+            transform: translate(0, 31vh) scale(0.75);
+  }
+  .stack .card-2 {
+    -webkit-transform: translate(0, 38vh) scale(0.8);
+            transform: translate(0, 38vh) scale(0.8);
+  }
+  .stack.stacked .card-1 {
+    -webkit-transform: translate(0, 31vh) scale(0.8);
+            transform: translate(0, 31vh) scale(0.8);
+  }
+  .stack.stacked .card-2 {
+    -webkit-transform: translate(0, 38vh) scale(0.85);
+            transform: translate(0, 38vh) scale(0.85);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  nav {
+    height: 30vh;
+  }
+  nav #quote {
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+  nav .link {
+    height: 50px;
+    width: 50px;
+  }
+  nav .link .icon {
+    height: 27px;
+  }
+  .card .container {
+    padding: 70px 20px 15px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: calc(100vh - 150px);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .card .avatar {
+    width: 220px;
+    height: 220px;
+    background-size: 220px;
+  }
+  .card .name {
+    font-size: 55px;
+    text-align: center;
+  }
+  .card .about {
+    margin-top: 7vh;
+    max-width: initial;
+    font-size: 30px;
+    text-align: center;
+  }
+  .card .about span {
+    line-height: 30px;
+    font-size: 23px;
+  }
+  .card .github {
+    margin-top: 20vh;
+    font-size: 20px;
+  }
+  .card .github img {
+    height: 22px;
+  }
+  .card .hero {
+    display: none;
+  }
+  .card footer {
+    font-size: 16px;
+  }
+  .card.stacked {
+    -webkit-transform: translate(0px, 28vh) scale(0.9);
+            transform: translate(0px, 28vh) scale(0.9);
+  }
+  .stack .card-1 {
+    -webkit-transform: translate(0, 18vh) scale(0.75);
+            transform: translate(0, 18vh) scale(0.75);
+  }
+  .stack .card-2 {
+    -webkit-transform: translate(0, 23vh) scale(0.8);
+            transform: translate(0, 23vh) scale(0.8);
+  }
+  .stack.stacked .card-1 {
+    -webkit-transform: translate(0, 18vh) scale(0.8);
+            transform: translate(0, 18vh) scale(0.8);
+  }
+  .stack.stacked .card-2 {
+    -webkit-transform: translate(0, 23vh) scale(0.85);
+            transform: translate(0, 23vh) scale(0.85);
+  }
+}
+
+@media only screen and (min-height: 768px) and (max-height: 1024px) and (orientation: landscape) {
+  nav {
+    height: 32vh;
+  }
+  nav #quote {
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  nav .link {
+    height: 50px;
+    width: 50px;
+  }
+  nav .link .icon {
+    height: 27px;
+  }
+  .card .container {
+    padding: 120px 0 20px 60px;
+  }
+  .card .avatar {
+    height: 200px;
+    width: 200px;
+    background-size: 200px;
+  }
+  .card .name {
+    margin-top: 30px;
+    font-size: 45px;
+  }
+  .card .about {
+    margin-top: 27px;
+    font-size: 25px;
+  }
+  .card .about span {
+    max-width: 50vw;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 60vw;
+  }
+  .card .github {
+    margin-top: 8vh;
+    font-size: 16px;
+  }
+  .card .github img {
+    height: 22px;
+  }
+  .card .hero {
+    -webkit-transform: translate(5vw, 5vh) scale(0.7);
+            transform: translate(5vw, 5vh) scale(0.7);
+  }
+  .card .hero:hover {
+    -webkit-transform: translate(-5vw, 5vh);
+            transform: translate(-5vw, 5vh);
+  }
+  .card .hero:hover img {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  .card footer {
+    font-size: 13px;
+  }
+  .card.stacked {
+    -webkit-transform: translate(0, 34vh) scale(0.9);
+            transform: translate(0, 34vh) scale(0.9);
+  }
+  .stack .card-1 {
+    -webkit-transform: translate(0, 22vh) scale(0.75);
+            transform: translate(0, 22vh) scale(0.75);
+  }
+  .stack .card-2 {
+    -webkit-transform: translate(0, 28vh) scale(0.8);
+            transform: translate(0, 28vh) scale(0.8);
+  }
+  .stack.stacked .card-1 {
+    -webkit-transform: translate(0, 22vh) scale(0.8);
+            transform: translate(0, 22vh) scale(0.8);
+  }
+  .stack.stacked .card-2 {
+    -webkit-transform: translate(0, 28vh) scale(0.85);
+            transform: translate(0, 28vh) scale(0.85);
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1440px) {
+  .card .container {
+    padding: 90px 0 20px 120px;
+  }
+  .card .avatar {
+    width: 190px;
+    height: 190px;
+    background-size: 190px;
+  }
+  .card .name {
+    margin-top: 30px;
+    font-size: 48px;
+  }
+  .card .about {
+    font-size: 20px;
+    font-weight: 500;
+    max-width: 35vw;
+  }
+  .card .about span {
+    font-size: 16px;
+  }
+  .card .github {
+    margin-top: 30px;
+    font-size: 15px;
+  }
+  .card footer {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  nav {
+    height: 32vh;
+  }
+  nav #quote {
+    margin-bottom: 35px;
+    font-size: 30px;
+  }
+  nav .link {
+    height: 65px;
+    width: 65px;
+  }
+  nav .link .icon {
+    height: 35px;
+  }
+  .card .container {
+    padding: 130px 0 20px 150px;
+  }
+  .card .avatar {
+    height: 300px;
+    width: 300px;
+    background-size: 300px;
+  }
+  .card .name {
+    margin-top: 35px;
+    font-size: 75px;
+  }
+  .card .about {
+    margin-top: 35px;
+    font-size: 45px;
+  }
+  .card .about span {
+    font-size: 30px;
+    line-height: 37px;
+  }
+  .card .github {
+    margin-top: 12vh;
+    font-size: 27px;
+  }
+  .card .github img {
+    height: 22px;
+  }
+  .card .hero {
+    -webkit-transform: translate(25vw, 5vh);
+            transform: translate(25vw, 5vh);
+  }
+  .card .hero:hover {
+    -webkit-transform: translate(10vw, 5vh);
+            transform: translate(10vw, 5vh);
+  }
+  .card footer {
+    font-size: 22px;
+  }
+}
